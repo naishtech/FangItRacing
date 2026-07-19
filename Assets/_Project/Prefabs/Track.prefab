@@ -168,32 +168,32 @@ MonoBehaviour:
     m_IsOpenEnded: 0
     m_ControlPoints:
     - position: {x: -4, y: 0, z: 0}
-      leftTangent: {x: 0, y: 1.5, z: 0}
-      rightTangent: {x: 0, y: -1.5, z: 0}
+      leftTangent: {x: 1.33, y: -0.83, z: 0}
+      rightTangent: {x: 1.33, y: 0.83, z: 0}
       mode: 1
       height: 1
       spriteIndex: 0
       corner: 0
       m_CornerMode: 0
     - position: {x: 0, y: 2.5, z: 0}
-      leftTangent: {x: -1.5, y: 0, z: 0}
-      rightTangent: {x: 1.5, y: 0, z: 0}
+      leftTangent: {x: -1.33, y: -0.83, z: 0}
+      rightTangent: {x: 1.33, y: -0.83, z: 0}
       mode: 1
       height: 1
       spriteIndex: 0
       corner: 0
       m_CornerMode: 0
     - position: {x: 4, y: 0, z: 0}
-      leftTangent: {x: 0, y: -1.5, z: 0}
-      rightTangent: {x: 0, y: 1.5, z: 0}
+      leftTangent: {x: -1.33, y: 0.83, z: 0}
+      rightTangent: {x: -1.33, y: -0.83, z: 0}
       mode: 1
       height: 1
       spriteIndex: 0
       corner: 0
       m_CornerMode: 0
     - position: {x: 0, y: -2.5, z: 0}
-      leftTangent: {x: 1.5, y: 0, z: 0}
-      rightTangent: {x: -1.5, y: 0, z: 0}
+      leftTangent: {x: 1.33, y: 0.83, z: 0}
+      rightTangent: {x: -1.33, y: 0.83, z: 0}
       mode: 1
       height: 1
       spriteIndex: 0
