@@ -27,6 +27,10 @@ namespace FangItRacing
             {
                 _offTrackCount++;
                 CurrentSpeedMultiplier = offTrackSpeedMultiplier;
+
+                var controller = other.GetComponent<MotorcycleController>();
+                if (controller != null)
+                    controller.SetSpeedMultiplier(offTrackSpeedMultiplier);
             }
         }
 
@@ -39,6 +43,10 @@ namespace FangItRacing
                 {
                     _offTrackCount = 0;
                     CurrentSpeedMultiplier = 1f;
+
+                    var controller = other.GetComponent<MotorcycleController>();
+                    if (controller != null)
+                        controller.SetSpeedMultiplier(1f);
                 }
             }
         }
