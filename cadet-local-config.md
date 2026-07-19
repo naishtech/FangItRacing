@@ -6,7 +6,8 @@ progressionModel: single-track-endless
 operatingMode: guided-implementation
 unityExperience: beginner
 enginePreference: unity
-lastUpdated: 2026-07-18
+unityVersion: 6000.4.5f1
+lastUpdated: 2026-07-19
 ---
 
 # Learner Configuration
