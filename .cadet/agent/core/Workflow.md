@@ -20,6 +20,7 @@ Cadet-Agent routes work using three inputs in priority order: learner tier, user
 - Standards and repository conventions apply to every path and do not change by learner tier.
 
 - Large changes: Start with a requirements document and Given/When/Then acceptance criteria, then produce a technical design, then implement via test-driven red/green cycles.
+- **Document splitting:** When any planning or design document grows beyond ~200 lines or covers multiple distinct concern areas, split it into a hub document with links to focused sub-documents (e.g., `technical-design.md` linking to `architecture.md`, `component-design.md`, `ui-design.md`). Each sub-document must be self-contained. This keeps per-document context small during implementation.
 - Large changes: Once acceptance criteria and technical design are finalized, create a project plan markdown file and separate epic markdown files with task breakdowns, then implement via test-driven red/green cycles.
 - If a local policy defines a planning directory, use that location for project plans and epics.
 - Small changes: Skip a separate requirements document when appropriate and begin with a failing test, then implement logic to pass.
@@ -132,6 +133,15 @@ Implement in small, reviewable increments.
 - For non-Latin locale updates, verify glyph coverage in font maps and ask the user to regenerate TMP font assets when glyph sets change.
 - After relevant code changes, prompt the user to recompile in Unity when needed.
 - Unity-specific rule: ask the user to focus the Unity window so compilation can run.
+
+## Step 3.5 — Review Gate (mandatory after epic completion)
+
+After completing an epic and before moving to the next or marking work as done, run the review skill in [CodeReview](Skills/CodeReview.md).
+
+- Apply the full 17-step review process against the completed epic's changes.
+- File prioritized findings with clear remediation steps.
+- Do not proceed to the next epic or PR merge until critical/high-risk findings are resolved.
+- After completing the review, **recommend the user optionally review the output in a separate chat instance with a different AI model.** A fresh context window avoids bias from the conversation history, and a different model provides an independent second opinion. This is especially valuable for technical designs, architecture decisions, and security-sensitive changes.
 
 ## Step 4
 Validate the completed work against the workflow path criteria before closing.
