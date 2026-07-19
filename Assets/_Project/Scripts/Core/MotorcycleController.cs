@@ -12,13 +12,23 @@ namespace FangItRacing
         [SerializeField] private float acceleration = 5f;
         [SerializeField] private float turnRate = 180f;
         [SerializeField] private float driftFactor = 0.9f;
+        [SerializeField] private float offTrackMultiplier = 0.3f;
 
         private IMotorcycleInput _input;
         private Vector2 _velocity;
         private float _currentSpeed;
+        private float _activeSpeedMultiplier = 1f;
 
         public bool IsControllable { get; set; }
         public float CurrentSpeed => _currentSpeed;
+
+        /// <summary>
+        /// Sets the off-track speed multiplier. 1.0 = normal, 0.3 = off-track slow.
+        /// </summary>
+        public void SetSpeedMultiplier(float multiplier)
+        {
+            _activeSpeedMultiplier = multiplier;
+        }
 
         public void SetInput(IMotorcycleInput input)
         {
@@ -43,12 +53,13 @@ namespace FangItRacing
             float accelInput = _input.Accelerate;
             _velocity += forward * (accelInput * acceleration * deltaTime);
 
-            // Clamp to max speed
+            // Clamp to max speed (modified by active multiplier for off-track)
+            float effectiveMaxSpeed = maxSpeed * _activeSpeedMultiplier;
             _currentSpeed = _velocity.magnitude;
-            if (_currentSpeed > maxSpeed)
+            if (_currentSpeed > effectiveMaxSpeed)
             {
-                _velocity = _velocity.normalized * maxSpeed;
-                _currentSpeed = maxSpeed;
+                _velocity = _velocity.normalized * effectiveMaxSpeed;
+                _currentSpeed = effectiveMaxSpeed;
             }
 
             // Steering (AC-02): rotate at speed-sensitive turn rate

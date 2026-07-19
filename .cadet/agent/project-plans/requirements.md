@@ -41,7 +41,7 @@
 - Localization (English-only prototype)
 
 ## Constraints and Assumptions
-- **Constraints:** Unity 6 (6000.x), 2D renderer, must build to WebGL, arcade physics only (no Rigidbody2D simulation required if custom controller suffices)
+- **Constraints:** Unity 6 (6000.4.5f1), 2D renderer, must build to WebGL, arcade physics only (no Rigidbody2D simulation required if custom controller suffices)
 - **Assumptions:** Single player only, keyboard as primary input device, single screen (no camera scrolling needed for a compact track)
 - **Dependencies:** Unity 6 installed, Unity 2D package set, WebGL build module
 - **Risks:** WebGL performance with physics — mitigate by keeping controller simple; input latency in WebGL — mitigate with Input System package
