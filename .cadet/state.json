@@ -1,0 +1,123 @@
+{
+  "context": {
+    "tier": "guided",
+    "mode": "implementation_first",
+    "policy": null,
+    "guidance": [],
+    "standards": [],
+    "planning_dir": ".cadet/agent/project-plans",
+    "workspace_root": "FangItRacing"
+  },
+  "session": {
+    "trackingMode": "markdown",
+    "startedAt": "2026-07-24T00:00:00Z",
+    "lastActivityAt": "2026-07-24T00:00:00Z"
+  },
+  "phase": "story_breakdown",
+  "workflowPath": "large",
+  "artifacts": {
+    "requirements": ".cadet/agent/project-plans/requirements.md",
+    "technicalDesign": ".cadet/agent/project-plans/technical-design.md",
+    "projectPlan": ".cadet/agent/project-plans/project-plan.md"
+  },
+  "activeEpic": null,
+  "activeStory": null,
+  "epics": [
+    {
+      "id": "epic-01",
+      "name": "Project Setup",
+      "status": "planned",
+      "storyCount": 5,
+      "storiesCompleted": 0,
+      "stories": [
+        { "id": "story-01", "name": "Verify Unity project structure", "status": "planned" },
+        { "id": "story-02", "name": "Install required packages", "status": "planned" },
+        { "id": "story-03", "name": "Create folder structure & test assemblies", "status": "planned" },
+        { "id": "story-04", "name": "Configure Input System", "status": "planned" },
+        { "id": "story-05", "name": "Bootstrap commit & PR", "status": "planned" }
+      ]
+    },
+    {
+      "id": "epic-02",
+      "name": "Motorcycle Controller",
+      "status": "planned",
+      "storyCount": 6,
+      "storiesCompleted": 0,
+      "stories": [
+        { "id": "story-01", "name": "Define IMotorcycleInput interface & mock", "status": "planned" },
+        { "id": "story-02", "name": "Create MotorcycleController with acceleration", "status": "planned" },
+        { "id": "story-03", "name": "Add steering", "status": "planned" },
+        { "id": "story-04", "name": "Add drift feel", "status": "planned" },
+        { "id": "story-05", "name": "Create Input System adapter & prefab", "status": "planned" },
+        { "id": "story-06", "name": "Integration tests & merge", "status": "planned" }
+      ]
+    },
+    {
+      "id": "epic-03",
+      "name": "Track & Lap Detection",
+      "status": "planned",
+      "storyCount": 7,
+      "storiesCompleted": 0,
+      "stories": [
+        { "id": "story-01", "name": "Import background image & add to scene", "status": "planned" },
+        { "id": "story-02", "name": "Create spline track with collider generation", "status": "planned" },
+        { "id": "story-03", "name": "Implement off-track slow zone", "status": "planned" },
+        { "id": "story-04", "name": "Create start/finish line trigger", "status": "planned" },
+        { "id": "story-05", "name": "Create LapData & LapManager stub", "status": "planned" },
+        { "id": "story-06", "name": "Implement lap detection & timing", "status": "planned" },
+        { "id": "story-07", "name": "PlayMode tests & merge", "status": "planned" }
+      ]
+    },
+    {
+      "id": "epic-04",
+      "name": "Race Flow",
+      "status": "planned",
+      "storyCount": 5,
+      "storiesCompleted": 0,
+      "stories": [
+        { "id": "story-01", "name": "Create RaceState & RaceManager stub", "status": "planned" },
+        { "id": "story-02", "name": "Implement countdown", "status": "planned" },
+        { "id": "story-03", "name": "Implement race timer & LapManager wiring", "status": "planned" },
+        { "id": "story-04", "name": "Create MainMenuScene", "status": "planned" },
+        { "id": "story-05", "name": "Implement scene transitions & merge", "status": "planned" }
+      ]
+    },
+    {
+      "id": "epic-05",
+      "name": "UI & Persistence",
+      "status": "planned",
+      "storyCount": 5,
+      "storiesCompleted": 0,
+      "stories": [
+        { "id": "story-01", "name": "Create IBestTimeRepository & PlayerPrefs implementation", "status": "planned" },
+        { "id": "story-02", "name": "Integrate persistence with RaceManager", "status": "planned" },
+        { "id": "story-03", "name": "Create HUD Canvas layout", "status": "planned" },
+        { "id": "story-04", "name": "Create HUDController with live updates", "status": "planned" },
+        { "id": "story-05", "name": "TimeFormatter, PlayMode tests & merge", "status": "planned" }
+      ]
+    },
+    {
+      "id": "epic-06",
+      "name": "Polish & Build",
+      "status": "planned",
+      "storyCount": 5,
+      "storiesCompleted": 0,
+      "stories": [
+        { "id": "story-01", "name": "Set up Cinemachine follow camera", "status": "planned" },
+        { "id": "story-02", "name": "Tune arcade controller feel", "status": "planned" },
+        { "id": "story-03", "name": "Add placeholder sprites & visual polish", "status": "planned" },
+        { "id": "story-04", "name": "Configure & create WebGL build", "status": "planned" },
+        { "id": "story-05", "name": "Performance check, final validation & merge", "status": "planned" }
+      ]
+    }
+  ],
+  "invocationLog": [
+    {
+      "timestamp": "2026-07-24T00:00:00Z",
+      "phase": "story_breakdown",
+      "action": "Created story breakdowns for all 6 epics",
+      "result": "success"
+    }
+  ],
+  "deviations": []
+}
