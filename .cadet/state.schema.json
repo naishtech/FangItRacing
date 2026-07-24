@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Cadet State",
+  "description": "Cadet agent session state — committed to git as an auditable workflow trail.",
+  "type": "object",
+  "properties": {
+    "context": {
+      "type": "object",
+      "properties": {
+        "tier": { "type": "string", "enum": ["new", "guided", "independent"] },
+        "mode": { "type": "string", "enum": ["instruction_first", "implementation_first", "guided_collaboration"] },
+        "policy": { "type": ["string", "null"] },
+        "guidance": { "type": "array", "items": { "type": "string" } },
+        "standards": { "type": "array", "items": { "type": "string" } },
+        "planning_dir": { "type": "string" },
+        "workspace_root": { "type": "string" }
+      },
+      "required": ["tier", "mode", "planning_dir", "workspace_root"]
+    },
+    "session": {
+      "type": "object",
+      "properties": {
+        "trackingMode": { "type": "string", "enum": ["markdown", "github"] },
+        "startedAt": { "type": "string", "format": "date-time" },
+        "lastActivityAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "phase": {
+      "type": "string",
+      "enum": ["context_resolution", "requirements", "architecture", "spikes", "story_breakdown", "implementation", "code_review", "complete"]
+    },
+    "workflowPath": {
+      "type": "string",
+      "enum": ["large", "small", "no_test_required"]
+    },
+    "artifacts": {
+      "type": "object",
+      "properties": {
+        "requirements": { "type": "string" },
+        "technicalDesign": { "type": "string" },
+        "projectPlan": { "type": "string" }
+      }
+    },
+    "activeEpic": { "type": ["string", "null"] },
+    "activeStory": { "type": ["string", "null"] },
+    "epics": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "status": { "type": "string", "enum": ["planned", "in_progress", "blocked", "complete"] },
+          "storyCount": { "type": "integer" },
+          "storiesCompleted": { "type": "integer" },
+          "stories": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": { "type": "string" },
+                "name": { "type": "string" },
+                "status": { "type": "string", "enum": ["planned", "in_progress", "blocked", "complete"] }
+              },
+              "required": ["id", "name", "status"]
+            }
+          }
+        },
+        "required": ["id", "name", "status", "storyCount", "storiesCompleted"]
+      }
+    },
+    "invocationLog": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "timestamp": { "type": "string", "format": "date-time" },
+          "phase": { "type": "string" },
+          "action": { "type": "string" },
+          "result": { "type": "string" }
+        }
+      }
+    },
+    "deviations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "timestamp": { "type": "string", "format": "date-time" },
+          "description": { "type": "string" },
+          "reason": { "type": "string" }
+        }
+      }
+    }
+  },
+  "required": ["context", "phase", "workflowPath", "epics"]
+}
