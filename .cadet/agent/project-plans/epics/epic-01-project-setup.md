@@ -15,7 +15,7 @@ Set up the Fang It Racing Unity project with correct packages, folder structure,
 ### T-02: Install required packages
 - Install packages via Package Manager:
   - `com.unity.inputsystem` (Input System)
-  - `com.unity.2d.spriteshape` (SpriteShape)
+  - `com.unity.splines` (Splines — track path)
   - `com.unity.cinemachine` (Cinemachine)
   - `com.unity.test-framework` (UTF — should already be present)
 - **Validation:** Packages appear in `Packages/manifest.json`, no console errors
@@ -31,7 +31,8 @@ Assets/
 │   │   └── Interfaces/
 │   ├── Prefabs/
 │   ├── Sprites/
-│   └── SpriteShapes/
+│   ├── Splines/
+│   └── Settings/
 ├── Tests/
 │   ├── EditMode/
 │   └── PlayMode/
@@ -61,4 +62,5 @@ Assets/
 ## Change History
 | Version | Date | Author | Changes |
 |---|---|---|---|
+| 0.2.0 | 2026-07-23 | Cadet-Agent | Replaced SpriteShape with Splines package; added Splines/ folder, Settings/ folder |
 | 0.1.0 | 2026-07-19 | Cadet-Agent | Initial |

@@ -4,24 +4,25 @@
 - **Project:** Fang It Racing
 - **Feature:** Core prototype — top-down 2D motorcycle time trial
 - **Status:** Draft
-- **Version:** 0.1.0
-- **Last Updated:** 2026-07-19
+- **Version:** 0.2.0
+- **Last Updated:** 2026-07-23
 
 ## Learner Context
-- **Assumed tier:** Tier 1 (Guided)
-- **Operating mode:** Instruction-first, full-plan-first review
-- **Explanation depth:** Component rationale with tradeoff notes; TDD strategy per acceptance criterion
+- **Assumed tier:** Tier 0 (New)
+- **Operating mode:** Guided implementation
+- **Explanation depth:** Layman's terms, explain why each step matters, ask before/after each substantive step
 
 ## Design Summary
-- **Overview:** Two-scene Unity 2D project: main menu and race scene. Arcade motorcycle controller drives a geometric sprite around a SpriteShape oval track. LapManager tracks crossings and times. RaceManager orchestrates state (countdown → racing → ended). Cinemachine follows the motorcycle. PlayerPrefs saves best lap time.
+- **Overview:** Two-scene Unity 2D project: main menu and race scene. Arcade motorcycle controller drives a geometric sprite around a spline-defined track overlaid on a user-provided background image. LapManager tracks crossings and times. RaceManager orchestrates state (countdown → racing → ended). Cinemachine follows the motorcycle. PlayerPrefs saves best lap time.
 - **Objectives:** Prove the top-down 2D arcade racing loop is fun; establish clean component boundaries for future iteration.
 - **Scope Boundaries:** Single track, single player, no audio, no online features. See [requirements.md](../requirements.md).
+- **Design Decision 2026-07-23:** Replaced SpriteShape with Unity Splines package (`com.unity.splines`) + user-provided background image. Rationale: SpriteShape's profile/fill/tangent workflow was too complex at Tier 0. Splines are simpler (click to add knots, drag to move) and the background image handles all visual detail.
 
 ## Requirements Mapping
 | Requirement ID | Design Section | Notes |
 |---|---|---|
 | AC-01, AC-02, AC-03 | MotorcycleController | Movement, steering, drift — all in one component |
-| AC-04 | TrackManager + off-track trigger | Slow-down zone via trigger colliders |
+| AC-04 | TrackManager + SplineTrack + Background | Slow-down zone via colliders generated from spline; track visuals from background image |
 | AC-05, AC-06 | LapManager | Trigger-based lap detection + timing |
 | AC-07 | BestTimeRepository | PlayerPrefs-backed persistence |
 | AC-08 | MenuController + MainMenuScene | Simple button-driven menu |
@@ -47,8 +48,9 @@ RaceScene
 │   ├── MotorcycleController (MonoBehaviour)
 │   └── Rigidbody2D (kinematic — for trigger detection only)
 ├── Track
-│   ├── SpriteShapeRenderer (oval loop)
-│   ├── EdgeCollider2D (generated from SpriteShape)
+│   ├── Background (SpriteRenderer — user-provided track image, sits behind everything)
+│   ├── SplineContainer (closed loop spline defining the racing line)
+│   ├── SplineTrack (MonoBehaviour — generates EdgeCollider2D from spline points)
 │   └── OffTrackTriggers (slow-down zones outside track)
 ├── StartFinishLine (GameObject with BoxCollider2D trigger)
 ├── RaceManager (MonoBehaviour, singleton for this prototype)
@@ -175,4 +177,5 @@ See ADRs in [adr/](adr/):
 ## Change History
 | Version | Date | Author | Changes |
 |---|---|---|---|
+| 0.2.0 | 2026-07-23 | Cadet-Agent | Replaced SpriteShape with Unity Splines + background image; updated learner tier to Tier 0 |
 | 0.1.0 | 2026-07-19 | Cadet-Agent | Initial technical design |

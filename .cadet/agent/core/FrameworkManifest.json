@@ -1,6 +1,6 @@
 {
   "frameworkName": "Cadet-Agent",
-  "frameworkVersion": "0.8.0",
+  "frameworkVersion": "0.11.0",
   "distributionMode": "cross-ide-universal-package",
   "canonicalRepository": "https://github.com/naishtech/cadet-agent",
   "preferredUpdateChannel": "releases",
@@ -11,13 +11,12 @@
     "claude-code"
   ],
   "managedPaths": [
-    "AGENTS.md",
+    ".github/agents/cadet.agent.md",
     ".github/prompts/cadet.prompt.md",
     ".cursor/rules/cadet-agent.md",
     ".continue/rules/cadet-agent.md",
     ".claude/skills/cadet-agent.md",
-    ".cadet/agent/core",
-    ".cadet/orchestrator"
+    ".cadet/agent/core"
   ],
   "preservedPaths": [
     ".cadet/agent/policies",

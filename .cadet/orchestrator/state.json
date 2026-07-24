@@ -1,0 +1,20 @@
+{
+  "context": {
+    "tier": "guided",
+    "mode": "implementation_first",
+    "policy": null,
+    "guidance": [],
+    "standards": [],
+    "planning_dir": ".cadet/agent/project-plans",
+    "workspace_root": "FangItRacing"
+  },
+  "path": "small",
+  "phase": "context_resolution",
+  "artifacts": {},
+  "active_epic": null,
+  "active_task": null,
+  "invocation_log": [],
+  "deviations": [],
+  "epic_task_count": 0,
+  "task_completion_count": 0
+}
